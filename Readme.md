@@ -5,7 +5,7 @@ This is a very very simple utility package to help keep credentials out of other
 
 It uses YAML and expects file/directories thusly:
 
-~/.passout/<service>.yml
+~/.passout/<<service>>.yml
 
 With a contents such as:
 
@@ -34,16 +34,16 @@ There are basically four methods:
 
 It works like this:
 
-```
-import passout
 
-po = passout.PassOut('okta','production)
-user = po.user()
-creds = po.creds()
-something_els = po.get('custom')
+    import passout
 
-# perhaps we've performed tests in a dev env and now can switch to prod
-po.setenv('production')
-user = po.user()
-creds = po.creds()
-```
+    po = passout.PassOut('okta','production)
+    user = po.user()
+    creds = po.creds()
+    something_els = po.get('custom')
+
+    # perhaps we've performed tests in a dev env and now can switch to prod
+    po.setenv('production')
+    user = po.user()
+    creds = po.creds()
+
