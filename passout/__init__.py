@@ -23,7 +23,7 @@ class PassOutNoEnvironmentData(PassOutException):
 
 class PassOutNoServiceFile(PassOutException):
   def __init__(self, value):
-    super(PassOutNoEnvironmentData, self).__init__('PassOutNoServiceFile: ' + value)
+    super(PassOutNoServiceFile, self).__init__('PassOutNoServiceFile: ' + value)
 
 class PassOut(object):
 
