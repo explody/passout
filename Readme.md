@@ -3,7 +3,9 @@ passout -- keep credentials out of code
 
 This is a very very simple utility package to help keep credentials out of other small scripts.
 
-It uses YAML and expects file/directories thusly:
+This is read-only. It does not create files or write YAML for you, you must set up the directory and files yourself.
+
+It expects file/directory structure thusly:
 
 ~/.passout/`<service>`.yml
 
@@ -22,7 +24,7 @@ Where the toplevel keys, 'development' and 'production' are the "environments".
 passout only supports one user entry per environment (dev/test, etc.) though, the environment names are arbitrary so
 one could easily have numerous envs like 'prod1','prod2' and so on.
 
-For the most part, this is a light structure with a thin layer over YAML. It's intended for user credentials but you
+For the most part, this is a light structure with a thin layer over the YAML. It's intended for user credentials but you
 can stick any string data in the yaml files, as long as it doesn't go beyond the structure noted above.
 
 There are basically four methods:
