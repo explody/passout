@@ -9,13 +9,13 @@ It uses YAML and expects file/directories thusly:
 
 With a contents such as:
 
-development:
-    user: username
-    pass: credentials
-    somethingelse: other
-production:
-    user: produser
-    pass: etc
+    development:
+        user: username
+        pass: credentials
+        somethingelse: other
+    production:
+        user: produser
+        pass: etc
 
 Where the toplevel keys, 'development' and 'production' are the "environments".
 
