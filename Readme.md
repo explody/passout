@@ -5,7 +5,7 @@ This is a very very simple utility package to help keep credentials out of other
 
 It uses YAML and expects file/directories thusly:
 
-~/.passout/<<service>>.yml
+~/.passout/`<service>`.yml
 
 With a contents such as:
 
