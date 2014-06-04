@@ -58,6 +58,16 @@ class PassOut(object):
 
   def setenv(self, env):
     self.env = env
+    self._loadsvc()
+
+  def setsvc(self, svc):
+    self.svc = svc
+    self._loadsvc()
+
+  def reset(self,svc,env):
+    self.env = env
+    self.svc = svc
+    self._loadsvc()
 
   def printenv(self):
     print self.env
