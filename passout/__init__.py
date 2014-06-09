@@ -48,7 +48,10 @@ class PassOut(object):
     self.svcdata = svcdata
 
   def get(self, key):
-    return self.svcdata[self.env][key]
+    if key in self.svcdata[self.env]:
+      return self.svcdata[self.env][key]
+    else:
+      return False
 
   def user(self):
     return self.get('user')
