@@ -27,19 +27,21 @@ one could easily have numerous envs like 'prod1','prod2' and so on.
 For the most part, this is a light structure with a thin layer over the YAML. It's intended for user credentials but you
 can stick any string data in the yaml files, as long as it doesn't go beyond the structure noted above.
 
-There are basically four methods:
+There are basically only a few methods:
 
 * get(key) - returns yaml[environment][key]
 * user() - returns yaml[environment]['user']
 * creds() - returns yaml[environment]['pass']
 * setenv(env) - set the environment name a triggers a load of the corresponding yaml
+* setsvc(svc) - switch apps and load the yaml
+* reset(svc, env) - switch app and env, reload yaml
 
 It works like this:
 
 
     import passout
 
-    po = passout.PassOut('okta','production)
+    po = passout.PassOut('okta','production')
     user = po.user()
     creds = po.creds()
     something_els = po.get('custom')
