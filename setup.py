@@ -10,7 +10,7 @@ def read(fname):
 
 setup(
     name = "passout",
-    version = "0.1",
+    version = "0.2",
     author = "Mike Culbertson",
     author_email = "mculbertson@pivotal.io",
     description = ("Comically simplistic utility to help keep usernames and passwords out of code"),

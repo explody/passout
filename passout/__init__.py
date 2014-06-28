@@ -5,10 +5,10 @@ import yaml
 default_dir = os.path.expanduser('~/.passout')
 default_env = 'development'
 
-if 'PO_ENV' not in os._environ:
+if 'PO_ENV' not in os.environ:
   environment = default_env
 else:
-  environment = os._environ['PO_ENV']
+  environment = os.environ['PO_ENV']
 
 # These exceptions are such total overkill for this tiny thing
 class PassOutException(Exception):
