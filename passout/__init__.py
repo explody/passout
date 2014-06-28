@@ -5,10 +5,10 @@ import yaml
 default_dir = os.path.expanduser('~/.passout')
 default_env = 'development'
 
-if 'PO_ENV' not in os.environ:
+if 'PO_ENV' not in os._environ:
   environment = default_env
 else:
-  environment = os.environ['PO_ENV']
+  environment = os._environ['PO_ENV']
 
 # These exceptions are such total overkill for this tiny thing
 class PassOutException(Exception):
@@ -28,12 +28,12 @@ class PassOutNoServiceFile(PassOutException):
 class PassOut(object):
 
   def __init__(self, svc, env=environment):
-    self.svc = svc
-    self.env = env
+    self._svc = svc
+    self._env = env
     self._loadsvc()
 
   def _loadsvc(self):
-    filename = ".".join([self.svc,'yml'])
+    filename = ".".join([self._svc,'yml'])
     filepath = os.path.join(default_dir,filename)
     try:
       pfh = open(filepath,"rb")
@@ -42,14 +42,14 @@ class PassOut(object):
 
     svcdata = yaml.load(pfh.read())
 
-    if self.env not in svcdata:
-      raise PassOutNoEnvironmentData('No data found for environment: ' + self.env)
+    if self._env not in svcdata:
+      raise PassOutNoEnvironmentData('No data found for environment: ' + self._env)
 
-    self.svcdata = svcdata
+    self._svcdata = svcdata
 
   def get(self, key):
-    if key in self.svcdata[self.env]:
-      return self.svcdata[self.env][key]
+    if key in self._svcdata[self._env]:
+      return self._svcdata[self._env][key]
     else:
       return False
 
@@ -59,18 +59,21 @@ class PassOut(object):
   def creds(self):
     return self.get('pass')
 
+  def getenv(self):
+    return self._env
+
   def setenv(self, env):
-    self.env = env
+    self._env = env
     self._loadsvc()
 
   def setsvc(self, svc):
-    self.svc = svc
+    self._svc = svc
     self._loadsvc()
 
   def reset(self,svc,env):
-    self.env = env
-    self.svc = svc
+    self._env = env
+    self._svc = svc
     self._loadsvc()
 
   def printenv(self):
-    print self.env
+    print self.getenv()
