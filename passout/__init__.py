@@ -1,3 +1,5 @@
+from __future__ import print_function
+
 import os
 import pprint
 import yaml
@@ -76,4 +78,4 @@ class PassOut(object):
     self._loadsvc()
 
   def printenv(self):
-    print self.getenv()
+    print(self.getenv())
