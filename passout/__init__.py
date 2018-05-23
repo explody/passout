@@ -34,6 +34,12 @@ class PassOut(object):
     self._env = env
     self._loadsvc()
 
+  def __getattr__(self, attr):
+    if attr in self._svcdata[self._env]:
+      return self._svcdata[self._env][attr]
+    else:
+      raise AttributeError
+
   def _loadsvc(self):
     filename = ".".join([self._svc,'yml'])
     filepath = os.path.join(default_dir,filename)
@@ -50,9 +56,9 @@ class PassOut(object):
     self._svcdata = svcdata
 
   def get(self, key):
-    if key in self._svcdata[self._env]:
-      return self._svcdata[self._env][key]
-    else:
+    try:
+      return self.__getattr__(key)
+    except AttributeError:
       return False
 
   def user(self):
@@ -79,3 +85,6 @@ class PassOut(object):
 
   def printenv(self):
     print(self.getenv())
+
+  def dumpsvc(self):
+    return self._svcdata[self._env]
