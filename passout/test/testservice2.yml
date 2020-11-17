@@ -1,0 +1,8 @@
+production:
+  url: https://prod.myservice2.com
+  username: prod_user2
+  password: "abcdefghij!"
+development:
+  url: https://dev.myservice2.com
+  username: dev_user2
+  password: klmnopqrst

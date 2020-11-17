@@ -8,19 +8,20 @@ from setuptools import setup
 def read(fname):
     return open(os.path.join(os.path.dirname(__file__), fname)).read()
 
+
 setup(
-    name = "passout",
-    version = "0.3",
-    author = "Mike Culbertson",
-    author_email = "mculbertson@pivotal.io",
-    description = ("Comically simplistic utility to help keep usernames and passwords out of code"),
-    license = "BSD",
-    keywords = "example documentation tutorial",
-    url = "http://pivotal.io",
+    name="passout",
+    version="0.4",
+    author="Mike Culbertson",
+    author_email="mikelcu@gmail.com",
+    description=(
+        "Small, simplistic utility to help keep usernames and passwords out of code"),
+    license="BSD",
+    keywords="password security credentials",
     packages=['passout'],
-    long_description=read('Readme.md'),
+    long_description=read('README.md'),
     classifiers=[
-        "Development Status :: 3 - Alpha",
+        "Development Status :: 5 - Production/Stable",
         "License :: OSI Approved :: BSD License",
     ],
 )
