@@ -7,4 +7,4 @@ test:
     # this configures Django application to use attached postgres database that is run on `postgres` host
     - apt-get update -qy
     - apt-get install -y python3-yaml python3-pytest
-    - pytest
+    - pytest-3
