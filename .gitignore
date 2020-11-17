@@ -1,2 +1,6 @@
+.coverage
 .idea
 *.pyc
+
+build/
+htmlcov/
